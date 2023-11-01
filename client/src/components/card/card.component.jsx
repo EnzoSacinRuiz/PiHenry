@@ -1,9 +1,12 @@
 import "./card.styles.css"
 
-function Card() {
+function Card({user}) {
+    const {name,id} = user
     return(
-        <div>
-            <p>Card View</p>
+        <div className="card-container">
+            <h2>{name.forename}</h2>
+            <h2>{name.surname}</h2>
+            <p>{id}</p>
         </div>
     );    
 }

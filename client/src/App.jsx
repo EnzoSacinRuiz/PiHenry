@@ -17,14 +17,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div>
         <Routes>
-          <Route path="/home" element={<Home/>}/>
-          <Route path="/detail" element={<Detail/>}/>
+          <Route exact path="/home" element={<Home/>}/>
+          <Route path="/home/:id" element={<Detail/>}/>
           <Route path="/create" element={<Create/>}/>
-        </Routes>
-        
-      </div>
+          <Route path="/" element={<Landing/>}/>
+        </Routes> 
      </BrowserRouter>
        )
       }

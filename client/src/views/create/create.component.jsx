@@ -3,7 +3,7 @@ import "./create.styles.css"
 function Create() {
     return(
         <div className="App">
-            <p>Detail</p>
+            <p>Create</p>
         </div>
     )
     
