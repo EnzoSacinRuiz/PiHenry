@@ -31,13 +31,15 @@ const getDriverByName = async (name) =>{
     const infoApi= (await axios.get("http://localhost:5000/drivers")).data
     const driverApi=infoCleaner(infoApi);
 
-    const driversFiltered=driverApi.filter(driver=>driver.name)
+    const driversFiltered=driverApi.filter(driver=>driver.name===name)
 
     const driverBDD= await Driver.findAll({where: {name:name}});
 
     return[...driversFiltered,...driverBDD]        
 
 }
+
+
 
 
 module.exports={createDriverDB,getDriverById,getDriverByName,getAllDrivers}

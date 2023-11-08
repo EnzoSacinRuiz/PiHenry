@@ -7,7 +7,7 @@ function Navbar({ handleChange, handleSubmit }) {
       <form onSubmit={handleSubmit}>
         <input
           type="search"
-          placeholder="Ingresa el apellido"
+          placeholder="Ingresa el nombre"
           onChange={handleChange}
         />
         <button type="submit">Buscar</button>
