@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers, getByName, sortUsers } from "../../redux/actions";
+import { getUsers, getByName, sortUsers, sortAlphabetically } from "../../redux/actions";
 import "./home.styles.css";
 import Navbar from "../../components/navbar/navbar.component";
 import Cards from "../../components/cards/cards.component";
@@ -65,11 +65,13 @@ function Home() {
         </button>
       </div>
 
-      {/* Sort Buttons */}
       <div className="sort-buttons">
-        <button onClick={() => dispatch(sortUsers("asc"))}>Sort Ascending</button>
-        <button onClick={() => dispatch(sortUsers("desc"))}>Sort Descending</button>
-      </div>
+  <button onClick={() => dispatch(sortUsers("asc"))}>Sort by Age Ascending</button>
+  <button onClick={() => dispatch(sortUsers("desc"))}>Sort by Age Descending</button>
+  <button onClick={() => dispatch(sortAlphabetically("asc"))}>Sort Alphabetically Ascending</button>
+  <button onClick={() => dispatch(sortAlphabetically("desc"))}>Sort Alphabetically Descending</button>
+</div>
+
 
       {/* Display Users on the Current Page */}
       <Cards allUsers={allUsers.slice(indexOfFirstUser, indexOfLastUser)} />

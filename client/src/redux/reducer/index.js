@@ -1,4 +1,4 @@
-import { GET_USERS,GET_BY_NAME,SORT_USERS } from "../actions";
+import { GET_USERS,GET_BY_NAME,SORT_USERS,SORT_ALPHABETICALLY } from "../actions";
 
 let initialState = {allUsers: [], usersCopy: [], teams: []}
 
@@ -20,6 +20,19 @@ function rootReducer(state = initialState, action){
               ...state,
               allUsers: action.payload
             };
+    case SORT_ALPHABETICALLY:
+      const sortedData = state.allUsers.slice().sort((a, b) => {
+        if (action.payload === "asc") {
+          return a.name.localeCompare(b.name);
+        } else {
+          return b.name.localeCompare(a.name);
+        }
+      });
+
+      return {
+        ...state,
+        allUsers: sortedData,
+      };
 
         default: 
             return state

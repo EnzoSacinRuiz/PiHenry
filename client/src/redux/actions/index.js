@@ -3,6 +3,8 @@ import axios from "axios";
 export const GET_USERS = "GET_USERS";
 export const GET_BY_NAME="GET_BY_NAME"
 export const SORT_USERS="SORT_USERS"
+export const SORT_ALPHABETICALLY = "SORT_ALPHABETICALLY";
+
 
 export function getUsers(){
     return async function(dispatch){
@@ -67,3 +69,9 @@ function calculateAge(birthdate) {
   return age;
 }
   
+export function sortAlphabetically(order) {
+  return {
+    type: SORT_ALPHABETICALLY,
+    payload: order,
+  };
+}
