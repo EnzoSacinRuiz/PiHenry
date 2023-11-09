@@ -1,4 +1,4 @@
-import { GET_USERS,GET_BY_NAME } from "../actions";
+import { GET_USERS,GET_BY_NAME,SORT_USERS } from "../actions";
 
 let initialState = {allUsers: [], usersCopy: [], teams: []}
 
@@ -14,7 +14,12 @@ function rootReducer(state = initialState, action){
         return{
             ...state,
             allUsers: action.payload
-        }
+        };
+    case SORT_USERS:
+            return {
+              ...state,
+              allUsers: action.payload
+            };
 
         default: 
             return state
